@@ -18,6 +18,12 @@
 }
 
 
+
 .carousel-inner>.item>img {
     width: 100%;
+
+footer {
+    background: black;
+    padding: 17px 0 18px 0;
+
 }
