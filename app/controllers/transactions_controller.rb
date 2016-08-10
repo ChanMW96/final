@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
       redirect_to project_path(@funding.project_id), notice: "Congraulations! Your transaction has been successfully!"
     else
       flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
+      Project.find(@funding.project_id).reset_amount
       gon.client_token = generate_client_token
       
     end

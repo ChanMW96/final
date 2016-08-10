@@ -1,7 +1,7 @@
 class ApplyMailer < ApplicationMailer
-	def apply_email(user,msg)
-		@user = user
+	def apply_email(email,msg)
+		@email = email
 		@msg = msg
-		mail(to: @user.email, subject: 'Application')
+		mail(to: @email, subject: 'Application')
 	end
 end
