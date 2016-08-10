@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
     #   @user = Company.find(@project.user_id)
     # end
     @user = Individual.find(1)
-    @time = ((@project.time*3600-(@project.created_at-Time.now))/(3600*24)).round
+    @time = (@project.time-(@project.created_at-Time.now).to_i).round
   end
 
   def destroy
