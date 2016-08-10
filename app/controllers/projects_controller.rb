@@ -6,13 +6,14 @@ class ProjectsController < ApplicationController
   end
 
   def email
-    case session[:type]
+    project =Project.find(params[:id])
+    case project.user_type
     when 1
-      user = Individual.find(session[:user_id])
+      user = Individual.find(project.user_id)
     when 2
-      user = Company.find(session[:user_id])
+      user = Company.find(project.user_id)
     end
-    AppMailingJob.perform_later(user,params[:msg])
+    AppMailingJob.perform_later(user.email,params[:msg])
     redirect_to request.referer
   end
 
@@ -44,7 +45,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(2)
+    @project = Project.find(params[:id])
     #this is real implementation
     # case @project.user_type
     # when 1
@@ -53,7 +54,7 @@ class ProjectsController < ApplicationController
     #   @user = Company.find(@project.user_id)
     # end
     @user = Individual.find(1)
-    @time = ((@project.time-(Time.now-@project.created_at))/(3600*24)).round
+    @time = ((@project.time*3600-(@project.created_at-Time.now))/(3600*24)).round
   end
 
   def destroy

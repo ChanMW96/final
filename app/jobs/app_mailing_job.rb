@@ -1,7 +1,7 @@
 class AppMailingJob < ActiveJob::Base
   queue_as :default
 
-  def perform(*args)
-    ApplyMailer.apply_email(user,msg).deliver_now
+  def perform(email,msg)
+    ApplyMailer.apply_email(email,msg).deliver_now
   end
 end
