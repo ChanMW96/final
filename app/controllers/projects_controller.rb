@@ -5,17 +5,17 @@ class ProjectsController < ApplicationController
     render :index
   end
 
-  def email
-    project =Project.find(params[:id])
-    case project.user_type
-    when 1
-      user = Individual.find(project.user_id)
-    when 2
-      user = Company.find(project.user_id)
-    end
-    AppMailingJob.perform_later(user.email,params[:msg])
-    redirect_to request.referer
-  end
+  # def email
+  #   project =Project.find(params[:id])
+  #   case project.user_type
+  #   when 1
+  #     user = Individual.find(project.user_id)
+  #   when 2
+  #     user = Company.find(project.user_id)
+  #   end
+  #   AppMailingJob.perform_later(user.email,params[:msg])
+  #   redirect_to request.referer
+  # end
 
   def new
     @project = Project.new
@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      byebug
       redirect_to @project
     else
       redirect_to new_projects_path
@@ -54,9 +53,9 @@ class ProjectsController < ApplicationController
     # when 2
     #   @user = Company.find(@project.user_id)
     # end
+    @user = Individual.find(@project.user_id)
+    # @time = (@project.time-(@project.created_at-Time.now).to_i).round
 
-    @user = Individual.find(1)
-    @time = (@project.time-(@project.created_at-Time.now).to_i).round
   end
 
   def destroy
@@ -69,6 +68,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:time,:title,:subtitle,:user_id,:user_type,:required_talents,:goal,:total_amount,:description,{images:[]})
+    params.require(:project).permit(:time,:title,:subtitle,:user_id,:required_talents,:goal,:total_amount,:description,{images:[]})
   end
 end
