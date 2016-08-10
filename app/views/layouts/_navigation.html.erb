@@ -6,23 +6,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-      <%= link_to 'Logo', root_path, html:{class:"navbar-brand" }%>
-
+    <%= link_to 'HML', root_path, class:"navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href='/projects'>Projects</a></li>
-        <li><%= link_to 'Start a Project', new_project_path %></li>
+        <% if session[:user_id].nil? %>
+          <li><%= link_to 'Start a Project', '#', data: {toggle: "modal", target: "#myModal"}  %></li>
+        <% else %>
+          <li><%= link_to 'Start a Project', new_project_path %></li>
+        <% end %>
       </ul>
-      <%=form_for :search,url:search_projects_path, html:{class:"navbar-form navbar-left searchbar"} do |f| %>
-        <div class="form-group" style="">
+      <%=form_for :search,url:search_projects_path, :html => { :class => "navbar-form navbar-left searchbar" } do |f| %>
+        <div class="form-group">
           <div class="input-group">
-            <%= f.text_field :search, html:{class:"form-control", id:'search-input'}%>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <%= f.text_field :search, class:"form-control", id:'search-input'%>
+            <span class="input-group-addon"><a href="#" onclick="$(this).closest('form').submit()"><span class="glyphicon glyphicon-search"></span></a></span>
           </div>
         </div>
       <% end %>
+
       <ul class="nav navbar-nav navbar-right">
       <% if session[:user_id].nil? %>
         <li><%= link_to 'Log In', '#', data: {toggle: "modal", target: "#myModal"}  %></li>
