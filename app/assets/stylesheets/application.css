@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.portfolio-item {
+    margin-bottom: 25px;
+}

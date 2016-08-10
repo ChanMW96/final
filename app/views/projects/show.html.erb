@@ -129,12 +129,12 @@
 		}
 
 		.col-right {
-    float: right;
+    		float: right;
 		}
 		
 		.col, .col-right, .col-center, .mobile-col, .px-gutter {
-	    box-sizing: border-box;
-	    padding-left: 20px;
+		    box-sizing: border-box;
+		    padding-left: 20px;
 		}
 		.align-right {
     	text-align: right;
@@ -145,9 +145,9 @@
 		}
 
 		.col-sm-3{
-	  padding-top: 10px;
-    margin-top: 40px;
-  	}
+	  		padding-top: 10px;
+    		margin-top: 40px;
+  		}
 
 		.caption-1 {
 		  overflow: hidden;  
@@ -181,19 +181,19 @@
 		}
 
 		hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 0;
-    border-top: 1px solid #eee;
-  	}
+	    margin-top: 20px;
+	    margin-bottom: 20px;
+	    border: 0;
+	    border-top: 1px solid #eee;
+  		}
 
-  	#h4skills{
-  		margin-top: 180px;
-  	}
+	  	#h4skills{
+	  		margin-top: 180px;
+	  	}
 
-  	.remote_modal_dialog{
-  		padding-right: 70px;
-  	}
+	  	.remote_modal_dialog{
+	  		padding-right: 70px;
+	  	}
   </style>
 </head>
 <body>
@@ -278,7 +278,7 @@
 			<div class="flag mobile-hide">
 				<p class="h5 mb0">
 					<span class="inline-block">
-					<span class="grey-dark"><%= @user.location %></span>
+				
 					<span class="grey-dark">&nbsp;|&nbsp;</span>
 					</span>
 					<span class="inline-block">
@@ -302,19 +302,23 @@
 <div class="col-sm-8 left" style="width: 70%;">
       <h4><small>ABOUT THIS PROJECT</small></h4>
       <hr>
-      <h2><%= @project.name %></h2>
+      <h2><%= @project.title %></h2>
       <h5><span class="glyphicon glyphicon-time"></span> Posted on, <%= @project.created_at.month %> <%= @project.created_at.day%>, <%= @project.created_at.year%>.</h5>
       <h5><span class="label label-danger">Science</span> <span class="label label-primary">Tech</span></h5><br>
-      <p><%= @project.description_1 %></p>
+      <p><%= @project.description %></p>
       <br><br>
-      <img class="img-responsive" src="https://shawglobalnews.files.wordpress.com/2015/04/greenpeace.jpg?quality=70&strip=all&w=720&h=480&crop=1" alt="greenpeace1">
+
+      <% @project.images.each do |x| %>
+      	<%= image_tag(x.url) %>
+      <% end %>
+ <!--      <img class="img-responsive" src="https://shawglobalnews.files.wordpress.com/2015/04/greenpeace.jpg?quality=70&strip=all&w=720&h=480&crop=1" alt="greenpeace1">
       <br><br>
-      <p><%= @project.description_2 %></p><br><br>
+
       <img class="img-responsive" src="http://www.greenpeace.org/international/Global/international/planet-2/image/2008/4/greenpeace-activists-take-acti-3.jpg" alt="greenpeace1">
       <br><br>
       <img class="img-responsive" src="http://gcaptain.com/wp-content/uploads/2013/04/2013-04-24T053143Z_1317732778_GM1E94O11G701_RTRMADP_3_AUSTRALIA-GREENPEACE-COAL.jpg" alt="greenpeace1">
       <br><br>
-      <p><%= @project.description_3 %></p>
+ -->
 
 
       

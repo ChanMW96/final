@@ -23,9 +23,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    if @project.valid?
-      @project.save
-      redirect_to projects_path(@project.id)
+    if @project.save
+      byebug
+      redirect_to @project
     else
       redirect_to new_projects_path
     end
@@ -54,6 +54,7 @@ class ProjectsController < ApplicationController
     # when 2
     #   @user = Company.find(@project.user_id)
     # end
+
     @user = Individual.find(1)
     @time = (@project.time-(@project.created_at-Time.now).to_i).round
   end
@@ -68,6 +69,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:proj).permit(:time,:title,:subtitle,:user_id,:user_type,:required_talents,:goal,:total_amount,:description,{images:[]})
+    params.require(:project).permit(:time,:title,:subtitle,:user_id,:user_type,:required_talents,:goal,:total_amount,:description,{images:[]})
   end
 end

@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
 	has_many :comments, foreign_key: :project_id
 	has_many :fundings, foreign_key: :project_id
 	after_save :reset_amount
+	
 	def reset_amount
 		res = 0
 		self.fundings.each do |fund|
