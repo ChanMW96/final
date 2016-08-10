@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
@@ -195,8 +187,7 @@
 	  		padding-right: 70px;
 	  	}
   </style>
-</head>
-<body>
+
 <br>
 <br>
 <br>
@@ -205,7 +196,7 @@
 <div class="projects-2">
 	<div class="container-flex px2">
 		<div class="col-sm-8 left video1">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/zVu9eawb1QY" frameborder="0" allowfullscreen></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=@link%>" frameborder="0" allowfullscreen></iframe>
 			<div class="mobile-hide">
 				<div class="NS_projects__category_location ratio-16-9">
 					<a class="grey-dark mr2 nowrap" href="/discover/places/washington-dc?ref=city"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
@@ -236,7 +227,7 @@
 
 		<div class="col col-12 stat-item">
 			<div class="ksr_page_timer poll stat" data-dynamic="5" data-end-time="2016-08-05T23:59:00-04:00">
-				<div class="num h1 bold"<>/div>
+				<div class="num h1 bold"><%= @project.time %></div>
 				<span class="text">hours to go</span>
 				</div>
 		</div>
@@ -257,7 +248,7 @@
 		        	<h4>Amount: RM<%= f.text_field :amount %></h4>
 		        	<%= f.hidden_field :user_id, value:current_consumer.id%>
 		        	<%= f.hidden_field :project_id, value:1%>
-		        	<%= f.submit "Submit"%>
+		        	<button class="btn btn--green btn--small"<%= f.submit %>Fund
 				<% end %>
 				</div>
 		    </div>
@@ -278,11 +269,11 @@
 			<div class="flag mobile-hide">
 				<p class="h5 mb0">
 					<span class="inline-block">
-				
+					<span class="grey-dark"><%= @user.name%></span>
 					<span class="grey-dark">&nbsp;|&nbsp;</span>
 					</span>
 					<span class="inline-block">
-					<span class="grey-dark"><%= @user.name%></span>
+					<span class="grey-dark"><%= @user.occupation%></span>
 					</span>
 				</p>
 			</div>
@@ -302,23 +293,38 @@
 <div class="col-sm-8 left" style="width: 70%;">
       <h4><small>ABOUT THIS PROJECT</small></h4>
       <hr>
-      <h2><%= @project.title %></h2>
+      <h2><%= @project.subtitle %></h2>
       <h5><span class="glyphicon glyphicon-time"></span> Posted on, <%= @project.created_at.month %> <%= @project.created_at.day%>, <%= @project.created_at.year%>.</h5>
       <h5><span class="label label-danger">Science</span> <span class="label label-primary">Tech</span></h5><br>
       <p><%= @project.description %></p>
       <br><br>
 
-      <% @project.images.each do |x| %>
-      	<%= image_tag(x.url) %>
-      <% end %>
- <!--      <img class="img-responsive" src="https://shawglobalnews.files.wordpress.com/2015/04/greenpeace.jpg?quality=70&strip=all&w=720&h=480&crop=1" alt="greenpeace1">
-      <br><br>
+			    	
+			    
+		 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <ol class="carousel-indicators">
 
-      <img class="img-responsive" src="http://www.greenpeace.org/international/Global/international/planet-2/image/2008/4/greenpeace-activists-take-acti-3.jpg" alt="greenpeace1">
-      <br><br>
-      <img class="img-responsive" src="http://gcaptain.com/wp-content/uploads/2013/04/2013-04-24T053143Z_1317732778_GM1E94O11G701_RTRMADP_3_AUSTRALIA-GREENPEACE-COAL.jpg" alt="greenpeace1">
-      <br><br>
- -->
+		  	<% @project.images.each_with_index do |x, index| %>
+		    	<li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class="<%= "active" if index == 0 %>"></li>
+		    <% end %>
+		  </ol>
+		  <div class="carousel-inner" role="listbox">
+
+		  	<% @project.images.each_with_index do |x, index| %>
+			    <div class="item <%= "active" if index == 0 %>">
+			      <img src=<%= x.url %> alt="<%= x.url %>" style="width: 100%;">
+			    </div>
+		    <% end %>
+		  </div>
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		    <span class="icon-prev" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		    <span class="icon-next" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
 
 
       
@@ -365,7 +371,7 @@
         <div class="thumbnail skills">
           <img src="http://oakwoodprimary.co.uk/wp-content/uploads/2014/01/vacancies2__large.jpg" alt="">
           <div class="caption-1">
-              <h3>Ruby Developer Needed!</h3>
+              <h3><%=@project.required_talents%> Ruby Developer Needed!</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               <p>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#applyModal">Apply Now!</button> <a href="#" class="btn btn-default">More Info</a>
@@ -382,7 +388,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Appy For : Ruby Developer</h4>
+		        <h4 class="modal-title" id="myModalLabel">Apply For : Ruby Developer</h4>
 		      </div>
 		      <div class="modal-body">
 		        <%= form_for :mail, url:email_projects_path do |f|%>
@@ -404,11 +410,3 @@
 		    </div>
 		  </div>
 		</div>   
-
-    
-
-
-</body>
-</html>
-
-

@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-
+    @link = @project.youtubelink.match(/=(.+)/).captures.first
     #this is real implementation
     # case @project.user_type
     # when 1
@@ -54,6 +54,7 @@ class ProjectsController < ApplicationController
     #   @user = Company.find(@project.user_id)
     # end
     @user = Individual.find(@project.user_id)
+
     # @time = (@project.time-(@project.created_at-Time.now).to_i).round
 
   end
