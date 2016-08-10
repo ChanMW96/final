@@ -1,23 +1,33 @@
 
 <%= form_for :individual, url: individuals_path do |form| %>
   
-  <div class="text-field">
+  <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
+    <%= form.text_field :email, type: 'email', class: 'form-control' %>
   </div>
   
-  <div class="text-field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, type: 'name' %>
+    <%= form.text_field :name, type: 'name', class: 'form-control' %>
   </div>
 
-  <div class="password-field">
+  <div class="form-group">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :occupation %>
+    <%= form.text_field :occupation, type: 'occupation', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :profile_photo %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="submit-field">
-    <%= form.submit %>
+    <%= form.submit 'Sign Up', :class => 'btn btn-primary' %>
   </div>
 
 <% end %>

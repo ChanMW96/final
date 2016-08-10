@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(:project_id)
+    @project = Project.find(params[:project_id])
     if @project.update(project_params)
       redirect_to projects_path(@project.id)
     else
@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(2)
+    @project = Project.find(params[:project_id])
     #this is real implementation
     # case @project.user_type
     # when 1
@@ -66,6 +66,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:proj).permit(:time,:title,:name,:user_id,:user_type,:required_talents,:goal,:total_amount,:description_1,:description_2,:description_3,{images:[]})
+    params.require(:proj).permit(:time,:title,:subtitle,:user_id,:user_type,:required_talents,:goal,:total_amount,:description,{images:[]})
   end
 end

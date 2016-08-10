@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809224954) do
+ActiveRecord::Schema.define(version: 20160809121318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20160809224954) do
     t.string   "email"
     t.string   "description"
     t.string   "password_digest"
+    t.string   "location"
+    t.string   "image"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.json     "images"
   end
 
   create_table "fundings", force: :cascade do |t|
@@ -48,28 +49,25 @@ ActiveRecord::Schema.define(version: 20160809224954) do
     t.string   "name"
     t.string   "email"
     t.string   "occupation"
-    t.string   "location"
     t.string   "password_digest"
+    t.string   "image"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.json     "images"
   end
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
-    t.string   "name"
+    t.string   "subtitle"
     t.integer  "user_id"
     t.integer  "user_type"
     t.integer  "goal"
     t.integer  "time"
-    t.integer  "total_amount"
-    t.string   "description_1"
-    t.string   "description_2"
-    t.string   "description_3"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "total_amount",     default: 0
+    t.string   "description"
     t.json     "images"
     t.json     "required_talents"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "strangers", force: :cascade do |t|

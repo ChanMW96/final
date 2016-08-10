@@ -5,6 +5,8 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :email
       t.string :description
       t.string :password_digest
+      t.string :location
+      t.string :image
 
       t.timestamps null: false
     end

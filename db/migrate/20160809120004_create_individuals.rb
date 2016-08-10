@@ -4,8 +4,8 @@ class CreateIndividuals < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :occupation
-      t.string :location
       t.string :password_digest
+      t.string :image
 
       t.timestamps null: false
     end
