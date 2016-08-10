@@ -307,14 +307,18 @@
       <h5><span class="label label-danger">Science</span> <span class="label label-primary">Tech</span></h5><br>
       <p><%= @project.description %></p>
       <br><br>
-      <img class="img-responsive" src="https://shawglobalnews.files.wordpress.com/2015/04/greenpeace.jpg?quality=70&strip=all&w=720&h=480&crop=1" alt="greenpeace1">
+
+      <% @project.images.each do |x| %>
+      	<%= image_tag(x.url) %>
+      <% end %>
+ <!--      <img class="img-responsive" src="https://shawglobalnews.files.wordpress.com/2015/04/greenpeace.jpg?quality=70&strip=all&w=720&h=480&crop=1" alt="greenpeace1">
       <br><br>
 
       <img class="img-responsive" src="http://www.greenpeace.org/international/Global/international/planet-2/image/2008/4/greenpeace-activists-take-acti-3.jpg" alt="greenpeace1">
       <br><br>
       <img class="img-responsive" src="http://gcaptain.com/wp-content/uploads/2013/04/2013-04-24T053143Z_1317732778_GM1E94O11G701_RTRMADP_3_AUSTRALIA-GREENPEACE-COAL.jpg" alt="greenpeace1">
       <br><br>
-
+ -->
 
 
       
