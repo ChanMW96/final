@@ -5,17 +5,17 @@ class ProjectsController < ApplicationController
     render :index
   end
 
-  def email
-    project =Project.find(params[:id])
-    case project.user_type
-    when 1
-      user = Individual.find(project.user_id)
-    when 2
-      user = Company.find(project.user_id)
-    end
-    AppMailingJob.perform_later(user.email,params[:msg])
-    redirect_to request.referer
-  end
+  # def email
+  #   project =Project.find(params[:id])
+  #   case project.user_type
+  #   when 1
+  #     user = Individual.find(project.user_id)
+  #   when 2
+  #     user = Company.find(project.user_id)
+  #   end
+  #   AppMailingJob.perform_later(user.email,params[:msg])
+  #   redirect_to request.referer
+  # end
 
   def new
     @project = Project.new
@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-
+    @link = @project.youtubelink.match(/=(.+)/).captures.first
     #this is real implementation
     # case @project.user_type
     # when 1
@@ -53,9 +53,10 @@ class ProjectsController < ApplicationController
     # when 2
     #   @user = Company.find(@project.user_id)
     # end
+    @user = Individual.find(@project.user_id)
 
-    @user = Individual.find(1)
-    @time = (@project.time-(@project.created_at-Time.now).to_i).round
+    # @time = (@project.time-(@project.created_at-Time.now).to_i).round
+
   end
 
   def destroy
@@ -68,6 +69,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:time,:title,:subtitle,:user_id,:user_type,:required_talents,:goal,:total_amount,:description,{images:[]})
+    params.require(:project).permit(:time,:title,:subtitle,:user_id,:required_talents,:goal,:total_amount,:description,{images:[]})
   end
 end
