@@ -16,3 +16,8 @@
 .portfolio-item {
     margin-bottom: 25px;
 }
+
+
+.carousel-inner>.item>img {
+    width: 100%;
+}

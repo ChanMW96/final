@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      byebug
       redirect_to @project
     else
       redirect_to new_projects_path
