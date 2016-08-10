@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    .left {
+    float: left;
+		}
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+
+    .container-flex {
+    max-width: 1040px;
+    margin-right: auto;
+    margin-left: auto;
+		}
+
+		.video1 {
+			padding: 20px 10px 20px;
+		}
+		
+		.projects_hero {
+			max-height: 345px;
+		}
+
+		.bold {
+    font-weight: bold;
+		}
+		
+		@media (min-width: 640px)
+		h1, .h1 {
+		    font-size: 48px;
+		    line-height: 50px;
+		}
+
+		.text {
+    font-weight: 500;
+    color: #80809E;
+    font-size: 15px; 
+  	}
+
+
+		.h1, h1 {
+			font-size: 36px;
+		}
+		
+		.h1, .h2, .h3, h1, h2, h3 {
+			margin-top: 20px;
+			margin-bottom: 0px;
+		}
+
+		.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+			font-family: inherit;
+			line-height: 1.1;
+			font-weight: 550;
+			color: inherit;
+		}
+
+		.btn[class*="btn--"] {
+    	font-weight: bold;
+		}
+
+		.btn--large {
+	    font-size: 16px;
+	    padding: 18px 30px;
+		}
+		
+		.btn--green, .btn--like.btn--liked {
+	    background-color: #2BDE73;
+	    color: #FFFFFF;
+		}
+		
+		.btn {
+	    transition: all 0.2s ease-in-out;
+	    border-width: 2px;
+	    border-color: transparent;
+	    border-style: solid;
+	    border-radius: 6px;
+	    cursor: pointer;
+	    display: inline-block;
+	    font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+	    line-height: 1;
+	    text-align: center;
+		}
+
+		a, a:link a:visited, a:active, button, button:visited, button:active {
+	    color: #2752ff;
+	    text-decoration: none;
+		}
+
+		.button-space {
+			padding-top: 30px;
+    	padding-bottom: 34px;
+		}
+
+		.NS_projects__category_location.ratio-16-9 {
+    margin-bottom: 15px;}
+
+		.NS_projects__category_location a {
+		    color: #80809E;
+		    margin-right: 20px;
+		}
+
+		.col-right {
+    float: right;
+		}
+		
+		.col, .col-right, .col-center, .mobile-col, .px-gutter {
+	    box-sizing: border-box;
+	    padding-left: 20px;
+		}
+		.align-right {
+    	text-align: right;
+		}
+
+		.projects-2 {
+			background-color: #e5e5ea;
+		}
+
+		.col-sm-3{
+	  padding-top: 10px;
+    margin-top: 40px;
+  	}
+
+		.caption-1 {
+		  overflow: hidden;  
+		}
+
+  	.thumbnail {
+	    display: block;
+	    padding: 10px;
+	    margin-bottom: 20px;
+	    line-height: 1.42857143;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+	    border-radius: 4px;
+	    margin-top: 20px;
+	    -webkit-transition: border .2s ease-in-out;
+	    -o-transition: border .2s ease-in-out;
+	    transition: border .2s ease-in-out;
+		}
+
+		.endorse{
+	    padding-left: 50px;
+	    padding-top: 10px;
+		}
+
+		.endorse-text{
+			color: #80809E;
+		}
+
+		hr #divide1{
+			color: #FFFFFF;
+		}
+
+		hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+  	}
+
+  	#h4skills{
+  		margin-top: 180px;
+  	}
+
+  	.remote_modal_dialog{
+  		padding-right: 70px;
+  	}
+  </style>
+</head>
+<body>
+<br>
+<br>
+<br>
+
+<section class="projects_hero">
+<div class="projects-2">
+	<div class="container-flex px2">
+		<div class="col-sm-8 left video1">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/zVu9eawb1QY" frameborder="0" allowfullscreen></iframe>
+			<div class="mobile-hide">
+				<div class="NS_projects__category_location ratio-16-9">
+					<a class="grey-dark mr2 nowrap" href="/discover/places/washington-dc?ref=city"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+						Washington, DC
+					</a>
+					<a class="grey-dark mr2 nowrap" href="/discover/categories/film%20&amp;%20video/documentary?ref=category"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+						Documentary
+					</a>
+					<h2><%= @project.title %></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-4">
+		<div class="col col-12 mb1 stat-item">
+			<div class="num h1 bold" data-backers-count="1207" id="backers_count"><data class="Project1997781445" data-format="number" data-value="1209" itemprop="Project[backers_count]"><%= @project.fundings.size %></data></div>
+			<span class="text">backers</span>
+		</div>
+
+		<div class="col col-12 mb1 stat-item">
+			<div class="num h1 bold nowrap" data-goal="100000.0" data-percent-raised="1.13847" data-pledged="113847.0" data-ref-tag="hero" id="pledged">
+				<data class="Project1997781445" data-currency="USD" data-format="shorter_money" data-precision="0" data-value="113905.0" data-without_code="true" itemprop="Project[pledged]">RM<%= @project.total_amount %></data>
+				<span class="money usd project_currency_code"></span>
+			</div>
+				<span class="text">pledged of RM<%= @project.goal %> goal</span>
+			</div>
+
+		<div class="col col-12 stat-item">
+			<div class="ksr_page_timer poll stat" data-dynamic="5" data-end-time="2016-08-05T23:59:00-04:00">
+				<div class="num h1 bold"><%= @time.hours %></div>
+				<span class="text">hours to go</span>
+				</div>
+		</div>
+
+		<div class="col col-12 button-space">
+			<button class="btn btn--green btn--large" id="button-back-this-proj" data-toggle="modal" data-target="#funding" title="Back this project">Fund This Project</a>
+		</div>
+		<div class="modal fade" id="funding" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">How much would you like to fund?</h4>
+		      </div>
+		      <div class="modal-body">
+		        <%= form_for :fund, url: fundings_path do |f| %> 
+		        	<h4>Email: <%= f.text_field :email %></h4>
+		        	<h4>Amount: RM<%= f.text_field :amount %></h4>
+		        	<%= f.hidden_field :user_id, value:current_consumer.id%>
+		        	<%= f.hidden_field :project_id, value:1%>
+		        	<%= f.submit "Submit"%>
+				<% end %>
+				</div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<div class="col-right col-4">
+		<div class="mobile-hide"><a class="remote_modal_dialog" data-modal-class="modal_project_by" data-modal-title="About the creator" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio"><img alt="" class="avatar-small circle" height="80" src="https://notafishblog.files.wordpress.com/2014/12/greenpeace-logo1.jpg" style="height: auto;" width="100"></a></div>
+		</div>
+
+
+		<div class="col col-8">
+			
+			<div class="mobile-show center py1">
+				<h5 class="mb1">Project by </h5><h3 class="normal mb0"><a class="green-dark" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio"><%= @user.name %></a></h3>
+			</div>
+			<div class="flag mobile-hide">
+				<p class="h5 mb0">
+					<span class="inline-block">
+					<span class="grey-dark"><%= @user.location %></span>
+					<span class="grey-dark">&nbsp;|&nbsp;</span>
+					</span>
+					<span class="inline-block">
+					<span class="grey-dark"><%= @user.occupation %></span>
+					</span>
+				</p>
+			</div>
+			<p class="h5 bold mobile-hide">
+			<a class="remote_modal_dialog full_bio mr2" data-modal-class="modal_project_by" data-modal-title="About the creator" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio">See full bio</a>
+
+			</p>
+			</div>
+	</div>
+			<hr>
+			</div>
+</section>
+<br><br>
+
+<section class="projects_description">
+<div class="container-flex px2">
+<div class="col-sm-8 left" style="width: 70%;">
+      <h4><small>ABOUT THIS PROJECT</small></h4>
+      <hr>
+      <h2><%= @project.name %></h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Posted on, <%= @project.created_at.month %> <%= @project.created_at.day%>, <%= @project.created_at.year%>.</h5>
+      <h5><span class="label label-danger">Science</span> <span class="label label-primary">Tech</span></h5><br>
+      <p><%= @project.description_1 %></p>
+      <br><br>
+      <img class="img-responsive" src="https://shawglobalnews.files.wordpress.com/2015/04/greenpeace.jpg?quality=70&strip=all&w=720&h=480&crop=1" alt="greenpeace1">
+      <br><br>
+      <p><%= @project.description_2 %></p><br><br>
+      <img class="img-responsive" src="http://www.greenpeace.org/international/Global/international/planet-2/image/2008/4/greenpeace-activists-take-acti-3.jpg" alt="greenpeace1">
+      <br><br>
+      <img class="img-responsive" src="http://gcaptain.com/wp-content/uploads/2013/04/2013-04-24T053143Z_1317732778_GM1E94O11G701_RTRMADP_3_AUSTRALIA-GREENPEACE-COAL.jpg" alt="greenpeace1">
+      <br><br>
+      <p><%= @project.description_3 %></p>
+
+
+      
+      <h4>Leave a Comment:</h4>
+      <%= form_for :com, url: comments_path, html: {role:"form", id:"comment"} do |f|%>
+			<%= f.hidden_field :user_id, value:current_consumer.id%>
+		    <%= f.hidden_field :project_id, value:1%>
+		    <%= f.hidden_field :type, value:session[:type]%>
+        <div class="form-group">
+          <%= text_area(:com, :comment, rows: 3,required: true, class: "form-control") %>
+        </div>
+        <%= f.submit 'Submit'%>
+      <% end %>
+      <br><br>
+      
+      <p>Comments:</p><br>
+      <div id='comment_block'>
+      <% @project.comments.each do |com|%>
+      	<div class="col-sm-10">
+      		<p><%=com.comment%></p>
+      	</div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Endorsed By</h4>
+        <div class="col-sm-2 text-center">
+          <img src="http://www.brycomm.com/wp-content/uploads/2011/08/Samsung-Logo.png" class="img-circle" height="65" width="65" alt="Avatar">
+          <img src="https://dinmerican.files.wordpress.com/2010/05/sdcorp3d4cpos8.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-8 endorse endorse-text">
+        	<h5>Samsung Malaysia</h5>
+        	<h5 style="margin-top: 40px;">Sime Darby Malaysia</h5>
+        </div>
+        <hr id="divide1">
+        <h4 id="h4skills">Skills In-need</h4>
+        <div class="thumbnail skills">
+          <img src="http://oakwoodprimary.co.uk/wp-content/uploads/2014/01/vacancies2__large.jpg" alt="">
+          <div class="caption-1">
+              <h3>Ruby Developer Needed!</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#applyModal">Apply Now!</button> <a href="#" class="btn btn-default">More Info</a>
+              </p>
+          </div>
+      	</div>
+        
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Appy For : Ruby Developer</h4>
+		      </div>
+		      <div class="modal-body">
+		        <%= form_for :mail, url:email_projects_path do |f|%>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Email address</label>
+				    <%= f.email_field :email, html:{class:"form-control", id:"exampleInputEmail1", placeholder:"Email"}%>
+				  </div>
+				  <div class="form-group">
+				    <label for="message">Message</label>
+				    <%= f.text_field :message, html:{class:"form-control", id:"message", placeholder:"Few words about yourself"}%>
+				  </div>
+				  <div class="form-group">				   
+				    <p>Once submited, all your info will be send to the owner of this project</p>
+				  </div>
+				  <%=f.submit "Apply!"%>
+				 <% end%>
+				</form>
+		      </div>
+		    </div>
+		  </div>
+		</div>   
+
+    
+
+
+</body>
+</html>
+
+
