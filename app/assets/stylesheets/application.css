@@ -28,9 +28,20 @@
 
 .carousel-inner>.item>img {
     width: 100%;
-/*
+
+}
+
+#middle-column {
+	margin-top: 50px;
+}
+
+#ind-pg-header {
+	text-align: center;
+}
+
 footer {
     background: black;
-    padding: 20px 0 18px 0;
-}*/
+    padding: 17px 0 18px 0;
+    margin-top: 50px;
+}
 

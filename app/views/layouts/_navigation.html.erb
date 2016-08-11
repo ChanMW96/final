@@ -32,7 +32,7 @@
         <li><%= link_to 'Sign up', '#', data: {toggle: "modal", target: "#mySignupModal"}  %></li>
       <% else %>
         <% if session[:type] == 1 %>
-          <li><%= link_to current_consumer.name, individual_path(current_consumer.id),method: :get %></li>
+          <li><%= link_to current_consumer.name.capitalize, individual_path(current_consumer.id),method: :get %></li>
         <% else %>
           <li><%= link_to current_consumer.name, company_path(current_consumer.id),method: :get %></li>
         <% end %>

@@ -275,7 +275,9 @@
 
 
 		<div class="col-right col-4">
-		<div class="mobile-hide"><a class="remote_modal_dialog" data-modal-class="modal_project_by" data-modal-title="About the creator" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio"><img alt="" class="avatar-small circle" height="80" src= style="height: auto;" width="100"></a></div>
+
+		<div class="mobile-hide"><a class="remote_modal_dialog" data-modal-class="modal_project_by" data-modal-title="About the creator" href="/individuals/<%=@user.id%>"><%= image_tag(@user.images.first.thumb, class: "img-circle img-center") if @user.images? %></a></div>
+
 		</div>
 
 
