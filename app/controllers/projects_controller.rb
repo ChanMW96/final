@@ -45,7 +45,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    byebug
     @link = @project.youtubelink.match(/=(.+)/).captures.first
     #this is real implementation
     # case @project.user_type
