@@ -19,8 +19,25 @@
       <div class="col-md-4">
         <h3>Project Description</h3>
         <p><%= proj.description %></p>
-        <%= link_to 'Project Details', proj, class: 'btn btn-primary' %>
+        <% if session[:user_id].nil? %>
+          <%= link_to 'Project Details', '#', class: 'btn btn-primary', data: {toggle: "modal", target: "#myModal"}  %>
+        <% else %>
+          <%= link_to 'Project Details', proj, class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   <% end %>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: '/sessions/form' %>
+      </div>
+    </div>
   </div>
+</div>

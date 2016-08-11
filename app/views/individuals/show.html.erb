@@ -107,12 +107,14 @@
                 <li class="active">
                     <a href="#">1</a>
                 </li>
+                <% if @individual.projects.count > 4 %>
                 <li>
                     <a href="#">2</a>
                 </li>
                 <li>
                     <a href="#">3</a>
                 </li>
+                <% end %>
                 <li>
                     <a href="#">&raquo;</a>
                 </li>

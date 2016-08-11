@@ -100,7 +100,11 @@
       <div class="col-md-4">
         <h3>Project Description</h3>
         <p><%= proj.description %></p>
-        <%= link_to 'Project Details', proj, class: 'btn btn-primary' %>
+        <% if session[:user_id].nil? %>
+          <%= link_to 'Project Details', '#', class: 'btn btn-primary', data: {toggle: "modal", target: "#myModal"}  %>
+        <% else %>
+          <%= link_to 'Project Details', proj, class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   <% end %>
