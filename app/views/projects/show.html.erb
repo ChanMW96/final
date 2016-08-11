@@ -179,6 +179,16 @@
 	    border-top: 1px solid #eee;
   		}
 
+
+
+	  .alert {
+	    padding: 15px;
+	    margin-bottom: 20px;
+	    border: 1px solid transparent;
+	    border-radius: 4px;
+	    text-align: center;
+		}
+
 	  	#h4skills{
 	  		margin-top: 100px;
 	  	}
@@ -187,11 +197,16 @@
 	  		padding-right: 70px;
 	  	}
 
+
   </style>
 
 <br>
 <br>
 <br>
+
+<% flash.each do |key, value| %>
+	<div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 
 <section class="projects_hero">
 <div class="projects-2">
@@ -214,13 +229,15 @@
 
 	<div class="col-sm-4">
 		<div class="col col-12 mb1 stat-item">
-			<div class="num h1 bold" data-backers-count="1207" id="backers_count"><data class="Project1997781445" data-format="number" data-value="1209" itemprop="Project[backers_count]"><%= @project.fundings.size %></data></div>
+			<div class="num h1 bold" id="backers_count"><data class="Project1997781445" data-format="number" data-value="0" itemprop="Project[backers_count]">
+			<%= @project.backers %>
+			</data></div>
 			<span class="text">backers</span>
 		</div>
 
 		<div class="col col-12 mb1 stat-item">
 			<div class="num h1 bold nowrap" data-goal="100000.0" data-percent-raised="1.13847" data-pledged="113847.0" data-ref-tag="hero" id="pledged">
-				<data class="Project1997781445" data-currency="USD" data-format="shorter_money" data-precision="0" data-value="113905.0" data-without_code="true" itemprop="Project[pledged]">RM<%= @project.total_amount %></data>
+				<data class="Project1997781445" data-currency="USD" data-format="shorter_money" data-precision="0" data-value="113905.0" itemprop="Project[pledged]">RM<%= @project.total_amount %></data>
 				<span class="money usd project_currency_code"></span>
 			</div>
 				<span class="text">pledged of RM<%= @project.goal %> goal</span>
@@ -248,7 +265,7 @@
 		        	<h4>Email: <%= f.text_field :email %></h4>
 		        	<h4>Amount: RM<%= f.text_field :amount %></h4>
 		        	<%= f.hidden_field :user_id, value:current_consumer.id%>
-		        	<%= f.hidden_field :project_id, value:1%>
+		        	<%= f.hidden_field :project_id, value: @project.id %>
 		        	<button class="btn btn--green btn--small"<%= f.submit %>Fund
 				<% end %>
 				</div>
@@ -258,7 +275,7 @@
 
 
 		<div class="col-right col-4">
-		<div class="mobile-hide"><a class="remote_modal_dialog" data-modal-class="modal_project_by" data-modal-title="About the creator" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio"><img alt="" class="avatar-small circle" height="80" src="https://notafishblog.files.wordpress.com/2014/12/greenpeace-logo1.jpg" style="height: auto;" width="100"></a></div>
+		<div class="mobile-hide"><a class="remote_modal_dialog" data-modal-class="modal_project_by" data-modal-title="About the creator" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio"><img alt="" class="avatar-small circle" height="80" src= style="height: auto;" width="100"></a></div>
 		</div>
 
 
