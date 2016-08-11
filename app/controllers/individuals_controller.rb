@@ -3,7 +3,9 @@ class IndividualsController < ApplicationController
   end
 
   def create
+
     @individual = Individual.new(individuals_params)
+
     if @individual.valid?
       @individual.save
       session[:user_id] = @individual.id
@@ -39,6 +41,6 @@ class IndividualsController < ApplicationController
 
   def individuals_params
     params[:individual][:password_confirmation] = params[:individual][:password]
-    params.require(:individual).permit(:name,:email,:password,:password_confirmation,{images:[]})
+    params.require(:individual).permit(:name,:email,:password,:password_confirmation,{images:[]},:occupation)
   end
 end

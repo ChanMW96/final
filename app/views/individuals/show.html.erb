@@ -1,0 +1,125 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row top-buffer">
+        <div class="col-lg-4 col-sm-6 text-center">
+            <%= image_tag(@individual.images.first.thumb, class: "img-circle img-center") if @individual.images? %>
+            <h3><%= @individual.name %></h3>
+            <p><%= @individual.occupation %></p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center" id="middle-column">
+            <h4><i class="fa fa-envelope-o"></i> 
+                <abbr title="Email">E</abbr>: <a href="mailto:<%= @individual.email %>"><%= @individual.email %></a>
+            </h4>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            
+             <ul class="list-unstyled list-inline list-social-icons">
+                <li>
+                    <a href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-linkedin-square fa-4x"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
+                </li>
+            </ul>
+            <ul class="list-unstyled list-inline list-social-icons">
+                <li>
+                    <a href="#"><i class="fa fa-y-combinator fa-4x" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-youtube-square fa-4x" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-git-square fa-4x" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-instagram fa-4x" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <!-- Intro Content -->
+    <div class="about">
+        <h2>About</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+        <h2>Credentials</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+    </div>
+    <!-- Page Heading/Breadcrumbs -->
+    <% if @individual.projects.count > 0 %>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header" id="ind-pg-header">My Projects
+                <small></small>
+            </h1>
+           <!--  <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">My Current Project</li>
+            </ol> -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- Project One -->
+    <% @individual.projects.each do |proj| %>
+    <!-- Portfolio Item Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header"><%= proj.title %>
+          <small><%= proj.subtitle %></small>
+        </h2>
+      </div>
+    </div>
+    <!-- /.row -->
+    <!-- Portfolio Item Row -->
+    <div class="row" id="project-bckg">
+      <div class="col-md-8">
+        <%= image_tag(proj.images.first, size: '680x280') %>
+      </div>
+      <div class="col-md-4">
+        <h3>Project Description</h3>
+        <p><%= proj.description %></p>
+        <%= link_to 'Project Details', proj, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+    <!-- /.row -->
+    <!-- Pagination -->
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <ul class="pagination">
+                <li>
+                    <a href="#">&laquo;</a>
+                </li>
+                <li class="active">
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">&raquo;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <% end %>
+    <!-- /.row -->
+</div>
