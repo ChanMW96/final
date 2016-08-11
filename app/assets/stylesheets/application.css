@@ -17,6 +17,15 @@
     margin-bottom: 25px;
 }
 
+
+#project-bckg {
+	background-color: #eee;
+	margin: 0;
+	padding: 15px 0;
+	border-radius: 5px;
+}
+
+
 .carousel-inner>.item>img {
     width: 100%;
 /*
