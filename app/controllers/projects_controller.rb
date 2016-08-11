@@ -45,6 +45,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    byebug
     @link = @project.youtubelink.match(/=(.+)/).captures.first
     #this is real implementation
     # case @project.user_type
@@ -69,6 +70,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:time,:title,:subtitle,:user_id,:required_talents,:goal,:total_amount,:description,{images:[]})
+    params.require(:project).permit(:time,:title,:subtitle,:user_id,:required_talents,:goal,:total_amount,:description,{images:[]},:youtubelink)
   end
 end
